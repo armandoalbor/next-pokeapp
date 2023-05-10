@@ -1,26 +1,26 @@
 import Link from "next/link";
 
-export default function Home() {
+export default function Contact() {
   return (
     <div>
       <p>
-        Welcome to <strong>home</strong> page
+        Welcome to <strong>contact</strong> page
       </p>
 
       <h1>
         Navigate to{" "}
         <Link
-          href="/about"
+          href="/"
           style={{
             color: "#64ceecff",
           }}
         >
-          About
+          Home
         </Link>
       </h1>
 
       <p style={{ marginTop: 48 }} className="description">
-        Get started by editing <code className="code">pages/index.tsx</code>
+        Get started by editing <code className="code">pages/contact.tsx</code>
       </p>
     </div>
   );
