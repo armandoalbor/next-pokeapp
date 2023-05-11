@@ -33,7 +33,7 @@ $ docker build -t nextjs-initial .
 $ docker run --name=next-app -p 3000:3000 nextjs-initial
 ```
 
-3. Access to app in your browser tipying `https://localhost:3000`
+3. Access to app in your browser typing `https://localhost:3000`
 
 # Relevant functionality
 
@@ -80,3 +80,17 @@ return {
 };
 ...
 ```
+
+# Technology
+
+- [Next.js](https://nextjs.org/)
+- [NextUI](https://nextui.org/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [Canvas conffeti](https://www.npmjs.com/package/canvas-confetti)
+
+# App Previews
+
+![Homepage](app_previews/home_preview.png)
+![Pokemon info](app_previews/detail_preview.png)
+![Add favorite](app_previews/add_favorite_preview.png)
+![Favorites](app_previews/favorites_preview.png)
