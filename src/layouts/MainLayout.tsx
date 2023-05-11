@@ -11,6 +11,8 @@ interface Props {
 
 const inter = Inter({ subsets: ['latin'] });
 
+const origin = typeof window !== 'undefined' ? window.location.origin : '';
+
 export const MainLayout: FC<Props> = ({ children, title = 'Pokemon App' }) => {
   return (
     <>
@@ -33,7 +35,7 @@ export const MainLayout: FC<Props> = ({ children, title = 'Pokemon App' }) => {
           property="og:description"
           content={`En esta página puedes encontrar toda la información relaciona a ${title}`}
         />
-        <meta property="og:image" content="/img/pokebanner.png" />
+        <meta property="og:image" content={`${origin}/img/pokebanner.png`} />
       </Head>
 
       <Navbar />
