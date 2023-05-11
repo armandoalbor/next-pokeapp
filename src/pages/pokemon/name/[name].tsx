@@ -3,7 +3,8 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { PokemonDetails } from '@/components/Pokemon/PokemonDetails/PokemonDetails';
 import { MainLayout } from '@/layouts';
-import { Pokemon } from '@/interfaces';
+import { Pokemon, PokemonListResponse } from '@/interfaces';
+import { pokeApi } from '@/api';
 import { getPokemonData } from '@/utils';
 
 interface Props {
@@ -18,28 +19,27 @@ const PokemonPage: FC<Props> = ({ pokemon }) => {
   );
 };
 
-// You should use getStaticPaths if you’re statically pre-rendering pages that use dynamic routes
-
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const pokemons151 = [...Array(151)].map((value, index) => `${index + 1}`);
+  const { data } = await pokeApi.get<PokemonListResponse>(`/pokemon?limit=151`);
+  const pokemonNames = data.results.map((pokemon) => pokemon.name);
 
   return {
-    paths: pokemons151.map((id) => ({
+    paths: pokemonNames.map((name) => ({
       params: {
-        id,
+        name,
       },
     })),
+
     fallback: false,
-    // fallback: "blocking" // Allow fallback to render component without pre loaded data
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { id } = params as { id: string };
+  const { name } = params as { name: string };
 
   return {
     props: {
-      pokemon: await getPokemonData(id),
+      pokemon: await getPokemonData(name),
     },
   };
 };
