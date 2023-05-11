@@ -1,5 +1,5 @@
-import { DarkLayout } from "@/layouts/DarkLayout";
-import Link from "next/link";
+import { DarkLayout } from '@/layouts';
+import Link from 'next/link';
 
 export default function About() {
   return (
@@ -9,13 +9,12 @@ export default function About() {
       </p>
 
       <h1>
-        Navigate to{" "}
+        Navigate to{' '}
         <Link
           href="/contact"
           style={{
-            color: "#64ceecff",
-          }}
-        >
+            color: '#64ceecff',
+          }}>
           Contact
         </Link>
       </h1>
